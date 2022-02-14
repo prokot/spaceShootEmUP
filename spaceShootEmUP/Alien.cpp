@@ -14,10 +14,12 @@ Alien::Alien() {
 	time1 = 0;
 	dir = 0;
 	setMoveSpeed(0.01);
+
 	//creating new texture and sprite for the entity
 	sf::Texture* alient = new sf::Texture();
 	sf::Sprite* alien = new sf::Sprite();
 	alient->loadFromFile("Graphics/alien.png");
+
 	//scaling texture
 	alien->scale(sf::Vector2f(0.2f, 0.2f));
 	alien->setPosition(sf::Vector2f(getX(), getY())); // absolute position

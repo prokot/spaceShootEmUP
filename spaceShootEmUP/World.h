@@ -6,6 +6,7 @@
 #include "Alien.h"
 #include "Player.h"
 #include "Bullet.h"
+#include "SuperAlien.h"
 
 #define WIDTH 660
 #define HEIGHT 380

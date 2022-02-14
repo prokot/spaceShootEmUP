@@ -22,7 +22,10 @@ World::World() {
 
 //spawn enemies
 void World::spawnEnemies() {
-        enemies.push_back(new Alien());
+        enemies.push_back(new Alien()); // polimorphism
+        if (time1 % 10 == 0) {
+            enemies.push_back(new SuperAlien());
+        }
 }
 
 //function basically updating position and calling overridden function update in Alien class
@@ -198,7 +201,6 @@ void World::game() {
             spawnflag = 1;
         }
 
-
         //setting firing cd and bullet entity handling
         if (player->getFiringCD() == 1) {
             if( bulletflag == 0)
@@ -232,8 +234,10 @@ void World::game() {
 
         //render player
         window->draw(player->getEntity());
+
         //collision detection
         detectCollision();
+
         //check if player lost all lives
         if (player->getLives() <= 0) {
             gameover = 1;
@@ -242,6 +246,7 @@ void World::game() {
         window->display();
     }
 }
+
 //once again trying to save memory
 World::~World() {
     delete(player);
